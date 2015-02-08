@@ -70,7 +70,7 @@ public class ToDoManagerActivity extends ListActivity {
 
                 Intent startAddToActivity = new  Intent(ToDoManagerActivity.this, AddToDoActivity.class);
 
-                startActivityForResult(startAddToActivity, 42);
+                startActivityForResult(startAddToActivity, ADD_TODO_ITEM_REQUEST);
             }
         });
 
@@ -87,8 +87,14 @@ public class ToDoManagerActivity extends ListActivity {
         // if user submitted a new ToDoItem
         // Create a new ToDoItem from the data Intent
         // and then add it to the adapter
-        ToDoItem newTodoItem = new ToDoItem(data);
-        mAdapter.add(newTodoItem);
+
+        if (requestCode == ADD_TODO_ITEM_REQUEST && resultCode == RESULT_OK) {
+                    ToDoItem newTodoItem = new ToDoItem(data);
+                    mAdapter.add(newTodoItem);
+
+
+
+        }
 
 
 

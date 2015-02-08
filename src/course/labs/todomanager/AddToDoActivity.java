@@ -140,7 +140,7 @@ public class AddToDoActivity extends Activity {
 						fullDate);
 
 				// TODO - return data Intent and finish
-
+                setResult(Activity.RESULT_OK, data);
                 finish();
 
 
